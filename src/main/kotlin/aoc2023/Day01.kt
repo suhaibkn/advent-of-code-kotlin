@@ -11,7 +11,7 @@ fun main() {
     part2()
 }
 
-fun part1() {
+private fun part1() {
     getInputForDay01()
         .map {
             it.split("").filter { e -> (0..9).contains(e.toIntOrNull()) }
@@ -21,7 +21,7 @@ fun part1() {
         .run(::println)
 }
 
-fun part2() {
+private fun part2() {
     getInputForDay01()
         .map {
             it
