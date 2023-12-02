@@ -1,34 +1,29 @@
-@file:Suppress("unused")
-
 package aoc2023
 
-import java.io.File
+import aoc.helper.Year
 
-fun main() {
-    print("Output for Part 1: ")
-    part1()
-
-    print("Output for Part 2: ")
-    part2()
+fun main() = Day02().run {
+    runFirstPart()
+    runSecondPart()
 }
 
-private fun part1() {
-    File("src/main/resources/aoc2023/day02/input")
-        .readLines()
-        .asSequence()
-        .map { Game(it) }
-        .filter { it.possible }
-        .sumOf { it.number }
-        .run(::println)
-}
+private class Day02 : Year(2023) {
+    override fun firstPart(): String {
+        return this.mainInput
+            .asSequence()
+            .map { Game(it) }
+            .filter { it.possible }
+            .sumOf { it.number }
+            .toString()
+    }
 
-private fun part2() {
-    File("src/main/resources/aoc2023/day02/input")
-        .readLines()
-        .asSequence()
-        .map { Game(it) }
-        .sumOf { it.power }
-        .run(::println)
+    override fun secondPart(): String {
+        return this.mainInput
+            .asSequence()
+            .map { Game(it) }
+            .sumOf { it.power }
+            .toString()
+    }
 }
 
 private class Game(val game: String) {
