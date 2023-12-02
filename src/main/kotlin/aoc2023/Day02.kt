@@ -54,11 +54,17 @@ private class Game(val game: String) {
 private class Set(val round: String) {
     val items: List<String> = this.round.split(", ")
 
-    val red = this.items.filter { it.endsWith(" red") }.sumOf { it.replace(" red", "").toInt() }
+    val red = this.items
+        .filter { it.endsWith(" red") }
+        .sumOf { it.replace(" red", "").toInt() }
 
-    val green = this.items.filter { it.endsWith(" green") }.sumOf { it.replace(" green", "").toInt() }
+    val green = this.items
+        .filter { it.endsWith(" green") }
+        .sumOf { it.replace(" green", "").toInt() }
 
-    val blue = this.items.filter { it.endsWith(" blue") }.sumOf { it.replace(" blue", "").toInt() }
+    val blue = this.items
+        .filter { it.endsWith(" blue") }
+        .sumOf { it.replace(" blue", "").toInt() }
 
     val possible = (this.red <= 12) && (this.green <= 13) && (this.blue <= 14)
 }
